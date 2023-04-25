@@ -10,35 +10,34 @@
  */
 int _printf(const char *format, ...)
 {
-	int length, i;
-	char *str;
+	int length, i, j, struct_len;
 	va_list list;
-
+	print f[] = {
+		{'c', print_char}, {'s', print_str}, {'%', print_perc},
+		{'d', print_int}, {'i', print_int}};
 	if (format == NULL)
 		return (-1);
-
 	va_start(list, format);
 	length = 0;
-
+	struct_len = sizeof(f) / sizeof(f[0]);
 	for (i = 0; *(format + i) != '\0' ; i++)
 	{
 		if (*(format + i) == '%')
 		{
 			i += 1;
-			if (*(format + i) == 'c')
+			for (j = 0; j < struct_len; j++)
 			{
-				_putchar(va_arg(list, int));
-				length += 1;
+				if (*(format + i) == f[j].symbol)
+				{
+					length += f[j].print(list);
+					break;
+				}
 			}
-			else if (*(format + i) == 's')
-			{
-				str = va_arg(list, char *);
-				length += print_str(str);
-			}
-			else if (*(format + i) == '%')
+			if (j == struct_len)
 			{
 				_putchar('%');
-				length++;
+				_putchar(*(format + i));
+				length += 2;
 			}
 		}
 		else

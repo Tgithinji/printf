@@ -3,13 +3,16 @@
 
 /**
  * print_str - prints a string to the stdout
- * @str: the string to be printed
+ * @list: list of extra arguments
  *
  * Return: length of the string
  */
-int print_str(char *str)
+int print_str(va_list list)
 {
 	int length;
+	char *str;
+
+	str = va_arg(list, char *);
 
 	length = 0;
 	if (str == NULL)
