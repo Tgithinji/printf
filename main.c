@@ -20,7 +20,7 @@ int main(void)
      * ui = (unsigned int)INT_MAX + 1024;
      * addr = (void *)0x7ffe637541f0;
      */
-    _printf("Length:[%d, %i]\n", len, len);
+    _printf("Length:[%d, %i]\n", 0, -987);
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("Negative:[%d]\n", -762534);
     printf("Negative:[%d]\n", -762534);
@@ -44,5 +44,6 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+    _printf("%b\n", 98);
     return (0);
 }

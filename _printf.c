@@ -13,8 +13,8 @@ int _printf(const char *format, ...)
 	int length, i, j, struct_len;
 	va_list list;
 	print f[] = {
-		{'c', print_char}, {'s', print_str}, {'%', print_perc},
-		{'d', print_int}, {'i', print_int}};
+		{'c', print_char}, {'s', print_str}, {'%', print_perc}, {'d', print_int},
+		{'i', print_int}, {'b', print_binary}};
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
