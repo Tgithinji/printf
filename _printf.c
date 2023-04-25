@@ -47,5 +47,6 @@ int _printf(const char *format, ...)
 			length++;
 		}
 	}
+	va_end(list);
 	return (length);
 }
