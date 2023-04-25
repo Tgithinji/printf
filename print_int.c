@@ -30,6 +30,7 @@ int print_integer(int num)
 	if (num < 0)
 	{
 		_putchar('-');
+		length++;
 		num = -num;
 	}
 	if (num / 10 != 0)
