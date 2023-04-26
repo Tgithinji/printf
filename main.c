@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * main - Entry point
@@ -8,8 +9,8 @@
  */
 int main(void)
 {
-    int len;
-    int len2;
+    int len, len_int;
+    int len2, len_int2;
     /* unsigned int ui;
      * void *addr;
      */
@@ -20,10 +21,12 @@ int main(void)
      * ui = (unsigned int)INT_MAX + 1024;
      * addr = (void *)0x7ffe637541f0;
      */
+    len_int = _printf("%d\n", INT_MAX);
+    len_int2 = printf("%d\n", INT_MAX);
     _printf("%");
     printf("%");
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Length:[%d, %i]\n", len_int, len_int);
+    printf("Length:[%d, %i]\n", len_int2, len_int2);
     _printf("Negative:[%d]\n", -762534);
     printf("Negative:[%d]\n", -762534);
     /**

@@ -9,37 +9,31 @@ int print_integer(int num);
  */
 int print_int(va_list list)
 {
-	int len, num;
+	int length, i, negative, num, num_arr[20];
 
 	num = va_arg(list, int);
-
-	len = print_integer(num);
-	return (len);
-}
-
-/**
- * print_integer - prints an integer
- * @num: integer to be printed
- *
- * Return: length
- */
-int print_integer(int num)
-{
-	int length;
-
+	negative = 0;
 	length = 0;
 	if (num < 0)
 	{
 		_putchar('-');
 		length++;
+		negative = 1;
 		num = -num;
 	}
-	if (num / 10 != 0)
+	for (i = 0; num > 0; i++)
 	{
-		print_integer(num / 10);
+		num_arr[i] = num % 10;
+		num /= 10;
+		length++;
 	}
-	num = ((num % 10) + '0');
-	_putchar(num);
-	length += 1;
+	if (negative)
+		i = length - 2;
+	else
+		i = length - 1;
+	for (; i >= 0; i--)
+	{
+		_putchar(num_arr[i] + '0');
+	}
 	return (length);
 }
