@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int length, i, j, struct_len;
+	int length = 0, i, j, struct_len;
 	va_list list;
 	print f[] = {
 		{'c', print_char}, {'s', print_str}, {'%', print_perc}, {'d', print_int},
@@ -18,13 +18,14 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
-	length = 0;
 	struct_len = sizeof(f) / sizeof(f[0]);
 	for (i = 0; *(format + i) != '\0' ; i++)
 	{
 		if (*(format + i) == '%')
 		{
 			i += 1;
+			if (*(format + i) == '\0')
+				return (-1);
 			for (j = 0; j < struct_len; j++)
 			{
 				if (*(format + i) == f[j].symbol)

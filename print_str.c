@@ -24,7 +24,7 @@ int print_str(va_list list)
 			length++;
 			nil++;
 		}
-		return (-1);
+		return (length);
 	}
 	while (*str != '\0')
 	{
