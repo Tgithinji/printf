@@ -11,12 +11,20 @@ int print_str(va_list list)
 {
 	int length;
 	char *str;
+	char *nil = "(null)";
 
 	str = va_arg(list, char *);
 
 	length = 0;
 	if (str == NULL)
+	{
+		while (*nil != '\0')
+		{
+			_putchar(*nil);
+			nil++;
+		}
 		return (-1);
+	}
 	while (*str != '\0')
 	{
 		_putchar(*str);
