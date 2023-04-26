@@ -14,6 +14,11 @@ int print_binary(va_list list)
 	num = va_arg(list, unsigned int);
 	binary_number = 0;
 	base = 1;
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	while (num != 0)
 	{
 		rem = num % 2;
