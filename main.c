@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-    int len, len_int;
+    int len, len_int, lenb;
     int len2, len_int2;
     /* unsigned int ui;
      * void *addr;
@@ -49,6 +49,7 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
-    _printf("%b\n", NULL);
+    lenb = _printf("%b", 1024);
+    _printf("%d\n", lenb);
     return (0);
 }

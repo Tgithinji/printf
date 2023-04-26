@@ -8,30 +8,27 @@
  */
 int print_binary(va_list list)
 {
-	int binary_number, rem, base, length;
-	unsigned int num;
+	int length, i;
+	unsigned int num, binary_number[50];
 
 	num = va_arg(list, unsigned int);
-	binary_number = 0;
-	base = 1;
+	length = 0;
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	while (num != 0)
+	
+	for (i = 0; num > 0; i++)
 	{
-		rem = num % 2;
-		num = num / 2;
-		binary_number = binary_number + rem * base;
-		base = base * 10;
-	}
-	while (base > 1)
-	{
-		base = base / 10;
-		_putchar(binary_number / base + '0');
-		binary_number = binary_number % base;
+		binary_number[i] = num % 2;
+		num /= 2;
 		length++;
+	}
+
+	for (i = length - 1; i >= 0; i--)
+	{
+		_putchar(binary_number[i] + '0');
 	}
 	return (length);
 }

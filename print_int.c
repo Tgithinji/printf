@@ -14,6 +14,11 @@ int print_int(va_list list)
 	num = va_arg(list, int);
 	negative = 0;
 	length = 0;
+	if (num == 0)
+	{
+		_putchar('0');
+		return(1);
+	}
 	if (num < 0)
 	{
 		_putchar('-');
