@@ -21,6 +21,7 @@ int print_str(va_list list)
 		while (*nil != '\0')
 		{
 			_putchar(*nil);
+			length++;
 			nil++;
 		}
 		return (-1);
