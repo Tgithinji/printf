@@ -2,24 +2,31 @@
 
 /**
  * print_unsigned_int - prints an unsigned integer
- * @args: list of arguments pointing to an integer
+ * @list: list of arguments pointing to an integer
  * Return: length of unsigned integer printed
  */
 
-int print_unsigned_int(va_list args)
+int print_unsigned_int(va_list list)
 {
-	unsigned int a = va_arg(args, unsigned int);
-	unsigned int count = 1;
-	int length = 0;
+	unsigned int number, count, num;
+	int length;
 
-	while (a / count >= 10)
+	number = va_arg(list, unsigned int);
+	count = 1;
+	length = 0;
+
+	/* get the number of digits in the unsigned char */
+	while (number / count >= 10)
+	{
 		count *= 10;
+	}
 
+	/* print each number one by one */
 	for (; count >= 1; count /= 10)
 	{
-		unsigned int digit = (a / count) % 10;
-
-		_putchar(digit + '0');
+		num = number / count;
+		num = num % 10;
+		_putchar(num + '0');
 		length++;
 	}
 	return (length);

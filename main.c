@@ -11,16 +11,13 @@ int main(void)
 {
     int len, len_int, lenb;
     int len2, len_int2;
-    /* unsigned int ui;
-     * void *addr;
-     */
+    unsigned int ui;
+    /* void *addr; */
 
     len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
     len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
-    /** 
-     * ui = (unsigned int)INT_MAX + 1024;
-     * addr = (void *)0x7ffe637541f0;
-     */
+    ui = (unsigned int)INT_MAX + 1024;
+    /* addr = (void *)0x7ffe637541f0;*/
     len_int = _printf("%d\n", INT_MAX);
     len_int2 = printf("%d\n", INT_MAX);
     _printf("%");
@@ -29,9 +26,9 @@ int main(void)
     printf("Length:[%d, %i]\n", len_int2, len_int2);
     _printf("Negative:[%d]\n", -762534);
     printf("Negative:[%d]\n", -762534);
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
     /**
-     * _printf("Unsigned:[%u]\n", ui);
-     * printf("Unsigned:[%u]\n", ui);
      * _printf("Unsigned octal:[%o]\n", ui);
      * printf("Unsigned octal:[%o]\n", ui);
      * _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
