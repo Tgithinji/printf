@@ -22,7 +22,7 @@ int print_octal(va_list list)
 	/* convert number to octal by repeatedly diving 8 */
 	while (num > 0)
 	{
-		octal_nums[length] = num % 10;
+		octal_nums[length] = num % 8;
 		num /= 8;
 		length++;
 	}
