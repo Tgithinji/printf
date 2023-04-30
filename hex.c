@@ -59,6 +59,12 @@ int print_HEX(va_list list)
 	length = 0;
 	num = va_arg(list, unsigned int);
 
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
 	while (num > 0)
 	{
 		HEX_nums[length] = num % 16;
