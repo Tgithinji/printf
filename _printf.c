@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	print f[] = {
 		{'c', print_char}, {'s', print_str}, {'%', print_perc}, {'d', print_int},
 		{'i', print_int}, {'b', print_binary}, {'u', print_unsigned_int},
-		{'o', print_octal}};
+		{'o', print_octal}, {'x', print_hex}, {'X', print_HEX}};
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
