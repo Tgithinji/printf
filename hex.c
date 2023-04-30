@@ -15,6 +15,12 @@ int print_hex(va_list list)
 	length = 0;
 	num = va_arg(list, unsigned int);
 
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
 	/* Repeatedly divide the num by 16 to get hexadecimal */
 	while (num > 0)
 	{
